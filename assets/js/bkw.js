@@ -39,7 +39,8 @@ export default class BKW {
 			price_kwh : document.getElementById( 'price_kwh' ),
 			acquisition_costs : document.getElementById( 'acquisition_costs' ),
 			orientation : document.getElementById( 'orientation' ),
-			tilt : document.getElementById( 'tilt' )
+			tilt : document.getElementById( 'tilt' ),
+			shading : document.getElementById( 'shading' )
 		};
 	}
 	/**
@@ -74,6 +75,7 @@ export default class BKW {
 	 *
 	 */
 	calculate(){
+		let shading_factor = this.parse(this.elements.shading.value);
 		let tilt_factor = this.parse(this.elements.tilt.value);
 		if( this.debug ) console.log( 'tilt_factor', tilt_factor );
 		let peak_watt = ( this.elements.module_watt.value * this.elements.module_count.value );
@@ -81,8 +83,8 @@ export default class BKW {
 		let yearly_costs = ( this.elements.yearly_usage.value * this.parse( this.elements.price_kwh.value ) );
 		if( this.debug ) console.log( 'yearly_costs', yearly_costs );
 		let generated_electricity = {
-			minimum : ( peak_watt * this.factor.min * this.elements.orientation.value * tilt_factor ),
-			maximum : ( peak_watt * this.factor.max * this.elements.orientation.value * tilt_factor )
+			minimum : ( peak_watt * this.factor.min * this.elements.orientation.value * tilt_factor * shading_factor ),
+			maximum : ( peak_watt * this.factor.max * this.elements.orientation.value * tilt_factor * shading_factor )
 		};
 		if( this.debug ) console.log( 'generated_electricity', generated_electricity.minimum, generated_electricity.maximum );
 		let generated_return = {
