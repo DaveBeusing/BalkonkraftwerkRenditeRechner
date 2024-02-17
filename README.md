@@ -4,6 +4,36 @@ Solar Balkonkraftwerk Rendite Rechner
 ### 🔸 Screenshots
 ![BalkonkraftwerkRenditeRechner](https://raw.githubusercontent.com/DaveBeusing/BalkonkraftwerkRenditeRechner/master/assets/img/bkw.png)
 
+
+### 🔸Formeln & Faktoren
+
+Ausrichtung | Faktor
+------------|-------
+Norden      | 0.57
+Osten       | 0.797
+Süden       | 1
+Weste       | 0.797
+
+Neigungswinkel | Prozentual | Faktor
+---------------|------------|---------
+0°             | 8,77       | 0.9123
+10°            | 3,9%       | 0.961
+20°            | 1,1%       | 0.989
+30°            | 100%       | 1
+40°            | 0,61%      | 0.9939
+50°            | 2,8%       | 0.972
+60°            | 6,58%      | 0.9342
+70°            | 12,06%     | 0.8794
+80°            | 19,37%     | 0.8063
+90°            | 28,38%     | 0.7162
+
+Verschattung | Prozentual | Faktor
+-------------|------------|-------
+keine        | 0%         | 1
+leichte      | 4.02%      | 0.9598
+mittlere     | 17.66%     | 0.8234
+starke       | 36.3%      | 0.637
+
 ### 🔸License
 Copyright ©️ 2024 Dave Beusing
 
