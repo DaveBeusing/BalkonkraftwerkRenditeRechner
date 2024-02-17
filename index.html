@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Balkonkraftwerk Rendite Rechner</title>
+	<meta name="description" content="Solar Balkonkraftwerk Rendite Rechner">
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body>
+	<section>
+		<div class="bkw">
+			<h2>Balkonkraftwerk <br> Rendite Rechner 🔆</h2>
+			<div class="bkw-input-wrap">
+				<input class="bkw-input-text" type="text" value="425" id="module_watt">
+				<span class="bkw-input-unit">W (DC)</span>
+				<span class="bkw-input-descriptor">Solarmodul</span>
+			</div>
+			<div class="bkw-input-wrap">
+				<select class="bkw-input-select" value="2" id="module_count">
+					<option value="1">1</option>
+					<option value="2" selected>2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+				</select>
+				<span class="bkw-input-descriptor">Modulanzahl</span>
+			</div>
+			<div class="bkw-input-wrap">
+				<input class="bkw-input-text" type="text" value="600" id="inverter_wp">
+				<span class="bkw-input-unit">W (AC)</span>
+				<span class="bkw-input-descriptor">Wechselrichter</span>
+			</div>
+			<div class="bkw-input-wrap">
+				<input class="bkw-input-text" type="text" value="3500" id="yearly_usage">
+				<span class="bkw-input-unit">kWh/Jahr</span>
+				<span class="bkw-input-descriptor">Stromverbrauch</span>
+			</div>
+			<div class="bkw-input-wrap">
+				<input class="bkw-input-text" type="text" value="0,35" id="price_kwh">
+				<span class="bkw-input-unit">Cent/kWh</span>
+				<span class="bkw-input-descriptor">Strompreis</span>
+			</div>
+			<div class="bkw-input-wrap">
+				<input class="bkw-input-text" type="text" value="349" id="acquisition_costs">
+				<span class="bkw-input-unit">EUR</span>
+				<span class="bkw-input-descriptor">Anschaffunsgkosten</span>
+			</div>
+			<div class="bkw-input-wrap">
+				<select class="bkw-input-select" value="1" id="orientation">
+					<option value="1">Süden</option>
+					<option value="0.797">Osten</option>
+					<option value="0.57">Norden</option>
+					<option value="0.797">Westen</option>
+				</select>
+				<span class="bkw-input-descriptor">Ausrichtung</span>
+			</div>
+			<div class="bkw-input-wrap">
+				<select class="bkw-input-select" value="3" id="tilt">
+					<option value="0">0°</option>
+					<option value="1">10°</option>
+					<option value="2">20°</option>
+					<option value="3" selected>30°</option>
+					<option value="4">40°</option>
+					<option value="5">50°</option>
+					<option value="6">60°</option>
+					<option value="7">70°</option>
+					<option value="8">80°</option>
+					<option value="9">90°</option>
+				</select>
+				<span class="bkw-input-descriptor">Neigungswinkel</span>
+			</div>
+			<div class="bkw-results">
+				<h3>Ergebnis</h3>
+				<p>Erzeugter Strom pro Jahr: <span id="bkw-result-genelec"></span></p>
+				<p>Ersparnis pro Jahr: <span id="bkw-result-savings"></span></p>
+				<p>Amortisationsdauer: <span id="bkw-result-armortisation"></span></p>
+			</div>
+			<p id="bkw-notice">Die Ergebnisse können aufgrund nicht berücksichtigter Faktoren abweichen und dienen nur als allgemeiner Richtwert.</p>
+		</div>
+		<span id="loading">Loading...</span>
+	</section>
+	<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
