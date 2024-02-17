@@ -7,6 +7,23 @@ Solar Balkonkraftwerk Rendite Rechner
 
 ### 🔸Formeln & Faktoren
 
+Modell           | Wirkungsgrad | Faktor
+-----------------|--------------|-------
+EZ1-M            | 97.30%       | 0.973
+Default          | 96.47%       | 0.9647
+SMI260           | 96.10%       | 0.961
+HM-800           | 96.00%       | 0.960
+HMS-800W-2T      | 96.00%       | 0.960
+SUN-M80 G4-EU-Q0 | 93.00%       | 0.930
+
+Manufacturer | Model 
+-------------|-------
+APSystems    | EZ1-M
+Letrika      | SMI260
+Hoymiles     | HM-800
+Hoymiles     | HMS-800W-2T
+Deye         | SUN-M80 G4-EU-Q0
+
 Ausrichtung | Faktor
 ------------|-------
 Norden      | 0.57

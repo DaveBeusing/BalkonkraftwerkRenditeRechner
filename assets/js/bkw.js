@@ -35,6 +35,7 @@ export default class BKW {
 			module_watt : document.getElementById( 'module_watt' ),
 			module_count : document.getElementById( 'module_count' ),
 			inverter_wp : document.getElementById( 'inverter_wp' ),
+			inverter_efficiency : document.getElementById( 'inverter_efficiency' ),
 			yearly_usage : document.getElementById( 'yearly_usage' ),
 			price_kwh : document.getElementById( 'price_kwh' ),
 			acquisition_costs : document.getElementById( 'acquisition_costs' ),
@@ -75,6 +76,7 @@ export default class BKW {
 	 *
 	 */
 	calculate(){
+		let inverter_efficiency = this.parse(this.elements.inverter_efficiency.value);
 		let shading_factor = this.parse(this.elements.shading.value);
 		let tilt_factor = this.parse(this.elements.tilt.value);
 		if( this.debug ) console.log( 'tilt_factor', tilt_factor );
@@ -83,8 +85,8 @@ export default class BKW {
 		let yearly_costs = ( this.elements.yearly_usage.value * this.parse( this.elements.price_kwh.value ) );
 		if( this.debug ) console.log( 'yearly_costs', yearly_costs );
 		let generated_electricity = {
-			minimum : ( peak_watt * this.factor.min * this.elements.orientation.value * tilt_factor * shading_factor ),
-			maximum : ( peak_watt * this.factor.max * this.elements.orientation.value * tilt_factor * shading_factor )
+			minimum : ( peak_watt * this.factor.min * this.elements.orientation.value * tilt_factor * shading_factor * inverter_efficiency ),
+			maximum : ( peak_watt * this.factor.max * this.elements.orientation.value * tilt_factor * shading_factor * inverter_efficiency )
 		};
 		if( this.debug ) console.log( 'generated_electricity', generated_electricity.minimum, generated_electricity.maximum );
 		let generated_return = {
