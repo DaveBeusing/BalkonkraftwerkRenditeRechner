@@ -110,8 +110,8 @@ export default class BKW {
 		};
 		if( this.debug ) console.log( 'self_supply', self_supply.minimum, self_supply.maximum );
 		const LCOE = {
-			year : this.round( ( this.elements.acquisition_costs.value / generated_electricity.minimum *10 ), 10 ),
-			lifetime : this.round( ( this.elements.acquisition_costs.value / (generated_electricity.minimum * this.elements.lifetime.value) *10 ), 10 )
+			year : this.round( ( this.parse( this.elements.acquisition_costs.value ) / generated_electricity.minimum *10 ), 10 ),
+			lifetime : this.round( ( this.parse( this.elements.acquisition_costs.value ) / (generated_electricity.minimum * this.elements.lifetime.value) *10 ), 10 )
 		};
 		if( this.debug ) console.log( 'LCOE', LCOE.year, LCOE.lifetime );
 		this.$( '#bkw-result-system-peak' ).innerHTML = `${this.round( peak_watt, 10 )} Wp`;
