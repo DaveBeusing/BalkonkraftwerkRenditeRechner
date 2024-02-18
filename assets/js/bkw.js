@@ -32,17 +32,17 @@ export default class BKW {
 			max : 1
 		};
 		this.elements = {
-			module_watt : document.getElementById( 'module_watt' ),
-			module_count : document.getElementById( 'module_count' ),
-			inverter_watt : document.getElementById( 'inverter_watt' ),
-			inverter_efficiency : document.getElementById( 'inverter_efficiency' ),
-			yearly_usage : document.getElementById( 'yearly_usage' ),
-			price_kwh : document.getElementById( 'price_kwh' ),
-			acquisition_costs : document.getElementById( 'acquisition_costs' ),
-			orientation : document.getElementById( 'orientation' ),
-			tilt : document.getElementById( 'tilt' ),
-			shading : document.getElementById( 'shading' ),
-			lifetime : document.getElementById( 'lifetime' ),
+			module_watt : this.$( '#module_watt' ),
+			module_count : this.$( '#module_count' ),
+			inverter_watt : this.$( '#inverter_watt' ),
+			inverter_efficiency : this.$( '#inverter_efficiency' ),
+			yearly_usage : this.$( '#yearly_usage' ),
+			price_kwh : this.$( '#price_kwh' ),
+			acquisition_costs : this.$( '#acquisition_costs' ),
+			orientation : this.$( '#orientation' ),
+			tilt : this.$( '#tilt' ),
+			shading : this.$( '#shading' ),
+			lifetime : this.$( '#lifetime' ),
 			checklist : this.$( '.bkw-checklist-wrap' )
 		};
 	}
@@ -114,11 +114,11 @@ export default class BKW {
 			lifetime : this.round( ( this.elements.acquisition_costs.value / (generated_electricity.minimum * this.elements.lifetime.value) *10 ), 10 )
 		};
 		if( this.debug ) console.log( 'LCOE', LCOE.year, LCOE.lifetime );
-		document.getElementById( 'bkw-result-system-peak' ).innerHTML = `${this.round( peak_watt, 10 )} Wp`;
-		document.getElementById( 'bkw-result-genelec' ).innerHTML = `${this.round( generated_electricity.minimum, 10 )} kWh`;
-		document.getElementById( 'bkw-result-savings' ).innerHTML = `${this.round( generated_return.minimum, 1 )} EUR`;
-		document.getElementById( 'bkw-result-self-supply' ).innerHTML = `${this.round( self_supply.minimum, 1 )}%`;
-		document.getElementById( 'bkw-result-lcoe' ).innerHTML = `${LCOE.year} ct/kWh`;
-		document.getElementById( 'bkw-result-armortisation' ).innerHTML = `${amortization_period} Jahre (${this.round(amortization_period*12,1)} Monate)`;
+		this.$( '#bkw-result-system-peak' ).innerHTML = `${this.round( peak_watt, 10 )} Wp`;
+		this.$( '#bkw-result-genelec' ).innerHTML = `${this.round( generated_electricity.minimum, 10 )} kWh`;
+		this.$( '#bkw-result-savings' ).innerHTML = `${this.round( generated_return.minimum, 1 )} EUR`;
+		this.$( '#bkw-result-self-supply' ).innerHTML = `${this.round( self_supply.minimum, 1 )}%`;
+		this.$( '#bkw-result-lcoe' ).innerHTML = `${LCOE.year} ct/kWh`;
+		this.$( '#bkw-result-armortisation' ).innerHTML = `${amortization_period} Jahre (${this.round(amortization_period*12,1)} Monate)`;
 	}
 }
