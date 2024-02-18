@@ -34,7 +34,7 @@ export default class BKW {
 		this.elements = {
 			module_watt : document.getElementById( 'module_watt' ),
 			module_count : document.getElementById( 'module_count' ),
-			inverter_wp : document.getElementById( 'inverter_wp' ),
+			inverter_watt : document.getElementById( 'inverter_watt' ),
 			inverter_efficiency : document.getElementById( 'inverter_efficiency' ),
 			yearly_usage : document.getElementById( 'yearly_usage' ),
 			price_kwh : document.getElementById( 'price_kwh' ),
