@@ -26,9 +26,14 @@ import BKW from './bkw.js';
  * 
  */
 window.addEventListener( 'load', function(){
+	const debug = true;
 	const loading = document.getElementById( 'loading' );
 	loading.style.display = 'none';
-	// new BKW().run();
-	window.bkw = new BKW(true);
-	window.bkw.run();
+	if( debug ){
+		window.bkw = new BKW( true );
+		window.bkw.run();
+	}
+	else {
+		new BKW().run();
+	}
 });
