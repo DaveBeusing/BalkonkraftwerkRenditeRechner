@@ -25,8 +25,8 @@ export default class BKW {
 	/**
 	 *
 	 */
-	constructor(){
-		this.debug = true;
+	constructor( debug=false ){
+		this.debug = debug;
 		this.factor = {
 			min : 0.7,
 			max : 1
@@ -76,28 +76,34 @@ export default class BKW {
 	 *
 	 */
 	calculate(){
-		let inverter_efficiency = this.parse(this.elements.inverter_efficiency.value);
-		let shading_factor = this.parse(this.elements.shading.value);
-		let tilt_factor = this.parse(this.elements.tilt.value);
+		const inverter_efficiency = this.parse(this.elements.inverter_efficiency.value);
+		const shading_factor = this.parse(this.elements.shading.value);
+		const tilt_factor = this.parse(this.elements.tilt.value);
 		if( this.debug ) console.log( 'tilt_factor', tilt_factor );
-		let peak_watt = ( this.elements.module_watt.value * this.elements.module_count.value );
+		const peak_watt = ( this.elements.module_watt.value * this.elements.module_count.value );
 		if( this.debug ) console.log( 'peak_watt', peak_watt );
-		let yearly_costs = ( this.elements.yearly_usage.value * this.parse( this.elements.price_kwh.value ) );
+		const yearly_costs = ( this.elements.yearly_usage.value * this.parse( this.elements.price_kwh.value ) );
 		if( this.debug ) console.log( 'yearly_costs', yearly_costs );
 		let generated_electricity = {
 			minimum : ( peak_watt * this.factor.min * this.elements.orientation.value * tilt_factor * shading_factor * inverter_efficiency ),
 			maximum : ( peak_watt * this.factor.max * this.elements.orientation.value * tilt_factor * shading_factor * inverter_efficiency )
 		};
 		if( this.debug ) console.log( 'generated_electricity', generated_electricity.minimum, generated_electricity.maximum );
-		let generated_return = {
+		const generated_return = {
 			minimum : ( generated_electricity.minimum * this.parse( this.elements.price_kwh.value ) ),
 			maximum : ( generated_electricity.maximum * this.parse( this.elements.price_kwh.value ) )
 		};
 		if( this.debug ) console.log( 'generated_return', generated_return.minimum, generated_return.maximum );
-		let amortization_period = this.round( ( this.parse( this.elements.acquisition_costs.value ) / generated_return.minimum ), 10 );
+		const amortization_period = this.round( ( this.parse( this.elements.acquisition_costs.value ) / generated_return.minimum ), 10 );
 		if( this.debug ) console.log( 'amortization_period', amortization_period );
+		const self_supply = {
+			minimum : ( generated_electricity.minimum / this.elements.yearly_usage.value * 100 ),
+			maximum : ( generated_electricity.maximum / this.elements.yearly_usage.value * 100 )
+		};
+		if( this.debug ) console.log( 'self_supply', self_supply.minimum, self_supply.maximum );
 		document.getElementById( 'bkw-result-genelec' ).innerHTML = `${this.round( generated_electricity.minimum, 10 )} - ${this.round( generated_electricity.maximum, 10 )} kWh`;
-		document.getElementById( 'bkw-result-savings' ).innerHTML = `${this.round( generated_return.minimum, 100 )} - ${this.round( generated_return.maximum, 100 )} EUR`;
-		document.getElementById( 'bkw-result-armortisation' ).innerHTML = `${amortization_period} Jahre`;
+		document.getElementById( 'bkw-result-savings' ).innerHTML = `${this.round( generated_return.minimum, 1 )} - ${this.round( generated_return.maximum, 1 )} EUR`;
+		document.getElementById( 'bkw-result-self-supply' ).innerHTML = `${this.round( self_supply.minimum, 1 )}% - ${this.round( self_supply.maximum, 1 )}%`;
+		document.getElementById( 'bkw-result-armortisation' ).innerHTML = `${amortization_period} Jahre (${this.round(amortization_period*12,1)} Monate)`;
 	}
 }

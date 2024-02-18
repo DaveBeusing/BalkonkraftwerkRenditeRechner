@@ -29,6 +29,6 @@ window.addEventListener( 'load', function(){
 	const loading = document.getElementById( 'loading' );
 	loading.style.display = 'none';
 	// new BKW().run();
-	window.bkw = new BKW();
+	window.bkw = new BKW(true);
 	window.bkw.run();
 });
