@@ -7,49 +7,45 @@ Solar Balkonkraftwerk Rendite Rechner
 
 ### 🔸Formeln & Faktoren
 
-Modell           | Wirkungsgrad | Faktor
------------------|--------------|-------
-EZ1-M            | 97.30%       | 0.973
-Default          | 96.47%       | 0.9647
-SMI260           | 96.10%       | 0.961
-HM-800           | 96.00%       | 0.960
-HMS-800W-2T      | 96.00%       | 0.960
-SUN-M80 G4-EU-Q0 | 93.00%       | 0.930
-
-Manufacturer | Model 
--------------|-------
-APSystems    | EZ1-M
-Letrika      | SMI260
-Hoymiles     | HM-800
-Hoymiles     | HMS-800W-2T
-Deye         | SUN-M80 G4-EU-Q0
+Modell           | Wirkungsgrad | Faktor | Hersteller
+-----------------|--------------|--------|------------
+EZ1-M            | 97.30%       | 0.973  | APSystems
+Default          | 96.47%       | 0.9647 | -ohne-
+SMI260           | 96.10%       | 0.961  | Letrika
+HM-800           | 96.00%       | 0.960  | Hoymiles
+HMS-800W-2T      | 96.00%       | 0.960  | Hoymiles
+SUN-M80 G4-EU-Q0 | 93.00%       | 0.930  | Deye
 
 Ausrichtung | Faktor
 ------------|-------
 Norden      | 0.57
 Osten       | 0.797
 Süden       | 1
-Weste       | 0.797
+Westen      | 0.797
 
-Neigungswinkel | Prozentual | Faktor
----------------|------------|---------
-0°             | 8,77       | 0.9123
-10°            | 3,9%       | 0.961
-20°            | 1,1%       | 0.989
-30°            | 100%       | 1
-40°            | 0,61%      | 0.9939
-50°            | 2,8%       | 0.972
-60°            | 6,58%      | 0.9342
-70°            | 12,06%     | 0.8794
-80°            | 19,37%     | 0.8063
-90°            | 28,38%     | 0.7162
+Neigungswinkel <br> 30° Süd wird als Basisleistung genutzt (100%)
+Neigungswinkel | Wirkungsgrad | Faktor
+---------------|--------------|---------
+0°             | -8,77        | 0.9123
+10°            | -3,9%        | 0.961
+20°            | -1,1%        | 0.989
+30°            |  100%        | 1
+40°            | -0,61%       | 0.9939
+50°            | -2,8%        | 0.972
+60°            | -6,58%       | 0.9342
+70°            | -12,06%      | 0.8794
+80°            | -19,37%      | 0.8063
+90°            | -28,38%      | 0.7162
 
-Verschattung | Prozentual | Faktor
--------------|------------|-------
-keine        | 0%         | 1
-leichte      | 4.02%      | 0.9598
-mittlere     | 17.66%     | 0.8234
-starke       | 36.3%      | 0.637
+
+Verschattung | Wirkungsgrad | Faktor
+-------------|--------------|-------
+keine        |  100%        | 1
+leichte      | -4.02%       | 0.9598
+mittlere     | -17.66%      | 0.8234
+starke       | -36.3%       | 0.637
+
+
 
 ### 🔸License
 Copyright ©️ 2024 Dave Beusing
