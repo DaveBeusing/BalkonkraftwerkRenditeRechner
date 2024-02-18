@@ -89,11 +89,17 @@
 				</select>
 				<span class="bkw-input-descriptor">Verschattung</span>
 			</div>
+			<div class="bkw-input-wrap">
+				<input class="bkw-input-text" type="text" value="15" id="lifetime">
+				<span class="bkw-input-unit">Jahre</span>
+				<span class="bkw-input-descriptor">Laufzeit</span>
+			</div>
 			<div class="bkw-results">
 				<h3>Ergebnis</h3>
 				<p>Erzeugter Strom pro Jahr: <span id="bkw-result-genelec"></span></p>
 				<p>Ersparnis pro Jahr: <span id="bkw-result-savings"></span></p>
 				<p>Eigenversorgung: <span id="bkw-result-self-supply"></span></p>
+				<p>Stromgestehungskosten: <span id="bkw-result-lcoe"></span></p>
 				<p>Amortisationsdauer: <span id="bkw-result-armortisation"></span></p>
 			</div>
 			<p id="bkw-notice">Die Ergebnisse können aufgrund nicht berücksichtigter Faktoren abweichen und dienen nur als allgemeiner Richtwert.</p>

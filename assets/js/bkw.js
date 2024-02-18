@@ -41,7 +41,8 @@ export default class BKW {
 			acquisition_costs : document.getElementById( 'acquisition_costs' ),
 			orientation : document.getElementById( 'orientation' ),
 			tilt : document.getElementById( 'tilt' ),
-			shading : document.getElementById( 'shading' )
+			shading : document.getElementById( 'shading' ),
+			lifetime : document.getElementById( 'lifetime' )
 		};
 	}
 	/**
@@ -101,9 +102,15 @@ export default class BKW {
 			maximum : ( generated_electricity.maximum / this.elements.yearly_usage.value * 100 )
 		};
 		if( this.debug ) console.log( 'self_supply', self_supply.minimum, self_supply.maximum );
+		const LCOE = {
+			year : this.round( ( this.elements.acquisition_costs.value / generated_electricity.minimum *10 ), 10 ),
+			lifetime : this.round( ( this.elements.acquisition_costs.value / (generated_electricity.minimum * this.elements.lifetime.value) *10 ), 10 )
+		};
+		if( this.debug ) console.log( 'LCOE', LCOE.year, LCOE.lifetime );
 		document.getElementById( 'bkw-result-genelec' ).innerHTML = `${this.round( generated_electricity.minimum, 10 )} - ${this.round( generated_electricity.maximum, 10 )} kWh`;
 		document.getElementById( 'bkw-result-savings' ).innerHTML = `${this.round( generated_return.minimum, 1 )} - ${this.round( generated_return.maximum, 1 )} EUR`;
 		document.getElementById( 'bkw-result-self-supply' ).innerHTML = `${this.round( self_supply.minimum, 1 )}% - ${this.round( self_supply.maximum, 1 )}%`;
+		document.getElementById( 'bkw-result-lcoe' ).innerHTML = `${LCOE.year} ct/kWh`;
 		document.getElementById( 'bkw-result-armortisation' ).innerHTML = `${amortization_period} Jahre (${this.round(amortization_period*12,1)} Monate)`;
 	}
 }

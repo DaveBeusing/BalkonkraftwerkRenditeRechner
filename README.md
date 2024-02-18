@@ -45,6 +45,12 @@ leichte      | -4.02%       | 0.9598
 mittlere     | -17.66%      | 0.8234
 starke       | -36.3%       | 0.637
 
+Stromgestehungskosten (Levelized Cost of Energy, LCOE)<br>
+LCOE = Laufzeitkosten EUR / Laufzeiterzeugung kWh <br>
+Gemittelte Laufzeit 15 Jahre <br>
+Simplifiziert, es werden keine Folgekosten, Inflation und Degration der Anlage berücksichtigt.<br>
+Angabe in Eurocent/kWh/Jahr (Eurocent/kWh/Laufzeit)
+
 
 
 ### 🔸License
