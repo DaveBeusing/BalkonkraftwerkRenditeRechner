@@ -42,8 +42,12 @@ export default class BKW {
 			orientation : document.getElementById( 'orientation' ),
 			tilt : document.getElementById( 'tilt' ),
 			shading : document.getElementById( 'shading' ),
-			lifetime : document.getElementById( 'lifetime' )
+			lifetime : document.getElementById( 'lifetime' ),
+			checklist : this.$( '.bkw-checklist-wrap' )
 		};
+	}
+	$( element ){
+		return document.querySelector( element );
 	}
 	/**
 	 *
@@ -56,6 +60,9 @@ export default class BKW {
 				this.calculate();
 			}.bind( this ), false );
 		}
+		this.elements.checklist.addEventListener( 'click', function( event ){
+			this.$( '.bkw-checklist' ).classList.toggle( 'hidden' );
+		}.bind( this ), false );
 	}
 	/**
 	 * 
@@ -107,6 +114,7 @@ export default class BKW {
 			lifetime : this.round( ( this.elements.acquisition_costs.value / (generated_electricity.minimum * this.elements.lifetime.value) *10 ), 10 )
 		};
 		if( this.debug ) console.log( 'LCOE', LCOE.year, LCOE.lifetime );
+		document.getElementById( 'bkw-result-system-peak' ).innerHTML = `${this.round( peak_watt, 10 )} Wp`;
 		document.getElementById( 'bkw-result-genelec' ).innerHTML = `${this.round( generated_electricity.minimum, 10 )} kWh`;
 		document.getElementById( 'bkw-result-savings' ).innerHTML = `${this.round( generated_return.minimum, 1 )} EUR`;
 		document.getElementById( 'bkw-result-self-supply' ).innerHTML = `${this.round( self_supply.minimum, 1 )}%`;

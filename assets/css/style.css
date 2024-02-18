@@ -73,7 +73,7 @@ section {
 	background: #edeef0;
 	border-radius: 30px;
 	padding-left: 20px;
-	margin-bottom: 25px;
+	margin-bottom: 15px;
 }
 
 .bkw-input-text,
@@ -110,9 +110,10 @@ section {
 	text-align: center;
 }
 
-.bkw-results h3 {
+.bkw-results h3,
+.bkw-checklist-wrap h3 {
 	font-size: 26px;
-	padding: 25px 0;
+	padding: 15px 0;
 	color: var(--color-dark-green);
 }
 
@@ -131,7 +132,7 @@ section {
 
 #bkw-notice {
 	position: relative;
-	margin-top: 25px;
+	margin: 25px 0;
 	font-size: smaller;
 	padding: 0 25px;
 }
@@ -141,4 +142,30 @@ section {
 	content: '⚠️';
 	left: -10px;
 	font-size: x-large;
+}
+
+.bkw-checklist-wrap {
+	width: 100%;
+	cursor: pointer;
+}
+
+.bkw-checklist {
+	display: inline-block;
+}
+
+.bkw-checklist li {
+	list-style: none;
+	font-size: 16px;
+	user-select: none;
+	position: relative;
+	margin-top: 10px;
+}
+
+.bkw-checklist li span {
+	font-size: smaller;
+	display: block;
+}
+
+.hidden {
+	display: none;
 }
